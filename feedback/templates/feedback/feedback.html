@@ -5,6 +5,7 @@
 {% block content %}
 <h3>test</h3>
 {% for object in feedback %}
+    <p>{{ object.user_name }}</p>
     <p>{{ object.summary }}</p>
     <p>{{ object.description }}</p>
 {% endfor %}
