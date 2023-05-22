@@ -106,7 +106,7 @@ ROOT_URLCONF = 'vybz.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(PROJECT_DIR, "templates")],
+        'DIRS': [os.path.join(PROJECT_DIR, "vybz/templates")],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
