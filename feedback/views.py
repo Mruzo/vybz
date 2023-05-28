@@ -5,13 +5,13 @@ from django.views import generic
 # Create your views here.
 
 
-def feedback_detal_view(request, slug):
-    obj = get_object_or_404(Feedback, slug=slug)
-    template_name = ['vybz/feedback.html']
-    context = {}
-    context['object'] = obj
-    context['meta'] = obj.as_meta()
-    return render(request, template_name, context)
+# def feedback_detal_view(request, slug):
+#     obj = get_object_or_404(Feedback, slug=slug)
+#     template_name = ['vybz/feedback.html']
+#     context = {}
+#     context['object'] = obj
+#     context['meta'] = obj.as_meta()
+#     return render(request, template_name, context)
 
 
 class Feedback_view(generic.ListView):
@@ -19,3 +19,9 @@ class Feedback_view(generic.ListView):
     template_name = "feedback/feedback.html"
     context_object_name = 'feedback'
     paginate_by = 4
+
+
+class Comment_view(generic.ListView):
+    model = Comment
+    template_name = "feedback/comment.html"
+    context_object_name = 'user_comment'

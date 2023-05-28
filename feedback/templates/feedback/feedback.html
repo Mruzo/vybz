@@ -8,6 +8,9 @@
     <p>{{ object.user_name }}</p>
     <p>{{ object.summary }}</p>
     <p>{{ object.description }}</p>
+    
+    {% include 'feedback/comment.html' with user_comment=object detail=True %}
+
 {% endfor %}
 
 {% endblock %}
