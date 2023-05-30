@@ -1,7 +1,17 @@
 
 
-
-
-{{ comment.user_name }}
-{{ comment.comment_cont }}
-
+{% for comment in user_comment %}
+    {% if user_comment.feedback_id == feedback.id %}
+    
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">{{ comment.user_name }}</li>
+            <li class="list-group-item">{{ comment.comment_cont }}</li>
+            <li class="list-group-item">A third item</li>
+        </ul>
+        <div class="card-body">
+            <a href="#" class="card-link">Card link</a>
+            <a href="#" class="card-link">Another link</a>
+        </div>
+        
+    {% endif %}
+{% endfor %}

@@ -31,7 +31,7 @@ class Comment(models.Model):
         User, default="vybz", null=True, on_delete=models.SET_NULL)
     comment_cont = models.TextField(max_length=120, verbose_name='Comment')
     feedback = models.ForeignKey(
-        Feedback, on_delete=models.CASCADE, related_name='feedback')
+        Feedback, on_delete=models.CASCADE, related_name='comments')
     created_on = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):

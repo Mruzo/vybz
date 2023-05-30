@@ -3,14 +3,39 @@
 {% load static %}
 
 {% block content %}
-<h3>test</h3>
-{% for object in feedback %}
-    <p>{{ object.user_name }}</p>
-    <p>{{ object.summary }}</p>
-    <p>{{ object.description }}</p>
-    
-    {% include 'feedback/comment.html' with user_comment=object detail=True %}
 
-{% endfor %}
+
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">{{ feedback.user_name }}</h5>
+                <p class="card-text">{{ feedback.summary }}.</p>
+                <p class="card-text"><small class="text-body-secondary">{{ object.description }}</small></p>
+            </div>
+            <img src="..." class="card-img-bottom" alt="...">
+        
+            {% for comment in feedback.comments.all %}
+                
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">{{ comment.user_name }}</li>
+                    <li class="list-group-item">{{ comment.comment_cont }}</li>
+                    <li class="list-group-item">A third item</li>
+                </ul>
+                <div class="card-body">
+                    <a href="#" class="card-link">Card link</a>
+                    <a href="#" class="card-link">Another link</a>
+                </div>
+
+            {% endfor %}
+
+
+            
+            
+            
+            </div>
+
+      
+    
+    
+
 
 {% endblock %}
