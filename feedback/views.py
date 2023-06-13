@@ -13,6 +13,11 @@ from django.views import generic
 #     context['meta'] = obj.as_meta()
 #     return render(request, template_name, context)
 
+class Feedback_list(generic.ListView):
+    model = Feedback
+    template_name = "feedback/base.html"
+    context_object_name = 'user_comment'
+
 
 class Feedback_view(generic.DetailView):
     model = Feedback
