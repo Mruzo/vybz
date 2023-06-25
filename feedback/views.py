@@ -15,8 +15,8 @@ from django.views import generic
 
 class Feedback_list(generic.ListView):
     model = Feedback
-    template_name = "feedback/base.html"
-    context_object_name = 'user_comment'
+    template_name = "base.html"
+    context_object_name = 'feedback_list'
 
 
 class Feedback_view(generic.DetailView):
@@ -26,7 +26,7 @@ class Feedback_view(generic.DetailView):
     # paginate_by = 4
 
     def get_object(self, queryset=None):
-        # Retrieve the specific feedback object based on iths ID
+        # Retrieve the specific feedback object based on it's ID
         return get_object_or_404(Feedback, slug=self.kwargs['slug'])
 
     def get_context_data(self, **kwargs):
