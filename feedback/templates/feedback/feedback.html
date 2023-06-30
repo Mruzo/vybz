@@ -9,9 +9,16 @@
             <div class="card-body">
                 <h5 class="card-title">{{ feedback.user_name }}</h5>
                 <p class="card-text">{{ feedback.summary }}.</p>
-                <p class="card-text"><small class="text-body-secondary">{{ object.description }}</small></p>
+                <p class="card-text"><small class="text-body-secondary">{{ object.description }}</small></p>feedback
             </div>
-            <img src="..." class="card-img-bottom" alt="...">
+
+            {% for image in feedback.images.all %}
+                <img src="{{ image.image.url }}" alt="Feedback Image">
+                <p> {{ image.caption }}</P>
+            {% endfor %}
+
+
+            
         
             {% for comment in feedback.comments.all %}
                 
@@ -25,12 +32,7 @@
                     <a href="#" class="card-link">Another link</a>
                 </div>
 
-            {% endfor %}
-
-
-            
-            
-            
+            {% endfor %}feedback
             </div>
 
       

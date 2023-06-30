@@ -1,5 +1,6 @@
 from django.db import models
 from django.conf import settings
+from django.core.exceptions import ValidationError
 
 # Create your models here.
 
@@ -17,6 +18,13 @@ class Feedback(models.Model):
     def __str__(self):
         return str(self.id)
 
+    def get_absolute_url(self):
+        return f"/feedback/{self.slug}"
+
+    def validate_images(self):
+        if self.images.count() > 4:
+            raise ValidationError('Not more than 4 images can be uploaded.')
+
     def save(self, *args, **kwargs):
         # save model in order to get the id
         super(Feedback, self).save(*args, **kwargs)
@@ -24,6 +32,20 @@ class Feedback(models.Model):
         # then implement the logic for slug
         if not self.slug:
             self.slug = str(self.id)
+
+
+class FeedbackImage(models.Model):
+    feedback = models.ForeignKey(
+        Feedback, on_delete=models.CASCADE, related_name='images')
+    image = models.ImageField(upload_to='images/feedback')
+    caption = models.CharField(max_length=50, blank=True)
+
+    def __str__(self):
+        return str(self.id)
+
+    def get_meta_image(self):
+        if self.image:
+            return self.image.url
 
 
 class Comment(models.Model):
