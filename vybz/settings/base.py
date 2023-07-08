@@ -137,8 +137,14 @@ AUTH_PASSWORD_VALIDATORS = [
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backend.postgresql',
+        'NAME': 'vybz',
+        'USER': 'misteruzo',
+        'PASSWORD': 'Ulu136226!',
+        'HOST': 'localhost',
+        'PORT': '',
+        # 'ENGINE': 'django.db.backends.sqlite3',
+        # 'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
 

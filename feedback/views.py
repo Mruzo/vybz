@@ -10,6 +10,9 @@ class Feedback_list(generic.ListView):
     template_name = "base.html"
     context_object_name = 'feedback_list'
 
+    def get_queryset(self):
+        return Feedback.objects.prefetch_related('images', 'comments')
+
 
 class Feedback_view(generic.DetailView):
     model = Feedback

@@ -21,7 +21,7 @@
               </div> -->
               <div class="col g-0 text-center bg-black">
                 <!-- <div class=""> -->
-                    <a class="navbar-brand" href="#">
+                    <a class="navbar-brand" href="/">
                       <img src="{% static 'jv/images/header3.svg' %}" alt="brand name and logo at header" class="h-25">
                       <!-- Justvybz -->
                     </a>
@@ -40,6 +40,12 @@
         
         <div class="card ">
           <p>{{ fb.user_name }}</p>
+          {% with fb.images.first as first_image %}
+            {% if first_image %}
+              <img src="{{ first_image.image.url }}" class="img-fluid " alt="thumbnail" >
+            {% endif %}
+          {% endwith %}
+          <p>{{ fb.comments.count }}</p>
           <a href="{{ fb.get_absolute_url }}"> 
             <p>{{ fb.summary }}</p>
           </a>
