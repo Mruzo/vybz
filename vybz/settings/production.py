@@ -1,14 +1,13 @@
 from .base import *
-import environ
 import os
+from configparser import RawConfigParser
 
-env = environ.Env(
-    # set casting, default value
-    DEBUG=False
-)
+config = RawConfigParser()
+config.read('/etc/vybz/settings.ini')
+
 
 # Raises Django's ImproperlyConfigured exception if SECRET_KEY not in os.environ
-SECRET_KEY = env('SECRET_KEY')
+
 
 # ADMINS = (
 #     ('Chris U', 'chrisuzoewulu@gmail.com'),
@@ -22,7 +21,7 @@ environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
 # Raises Django's ImproperlyConfigured
 # exception if SECRET_KEY not in os.environ
 # False if not in os.environ because of casting above
-DEBUG = env('DEBUG')
+DEBUG = False
 
 ALLOWED_HOSTS = ['138.197.169.241',
                  'www.justvybz.com', 'justvybz.com', 'localhost']
@@ -37,9 +36,9 @@ config.read('/etc/snmov/settings.ini')
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': env('DB_NAME'),
-        'USER': env('DB_USER'),
-        'PASSWORD': env('DB_PASSWORD'),
+        'NAME': config.get('section', 'DB_NAME'),
+        'USER': config.get('section', 'DB_USER'),
+        'PASSWORD': config.get('section', 'DB_PASSWORD'),
         'HOST': 'localhost',
         'PORT': '',
     }

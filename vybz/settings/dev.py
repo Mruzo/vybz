@@ -1,8 +1,13 @@
 from .base import *
+import os
+from configparser import RawConfigParser
+
+config = RawConfigParser()
+config.read('/etc/vybz/settings.ini')
 
 DEBUG = True
 
-SECRET_KEY = 'django-insecure-m)wkz06botio$68@3!88$2q=%t9@dg$0397p*nw*h9c-w1ab@^'
+SECRET_KEY = config.get('section', 'VYBZ_KEY')
 
 ALLOWED_HOSTS = ["*"]
 

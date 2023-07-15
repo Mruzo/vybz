@@ -2,6 +2,12 @@
 from pathlib import Path
 import os
 import mimetypes
+import environ
+
+env = environ.Env(
+    # set casting, default value
+    DEBUG=True
+)
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 PROJECT_DIR = os.path.dirname(os.path.dirname(
@@ -13,12 +19,14 @@ BASE_DIR = Path(__file__).resolve().parent.parent.parent
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-m)wkz06botio$68@3!88$2q=%t9@dg$0397p*nw*h9c-w1ab@^'
+
+
+# SECRET_KEY = env('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-# DEBUG = True
+DEBUG = True
 
-# ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
