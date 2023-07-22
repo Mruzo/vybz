@@ -14,7 +14,6 @@ django-permissionedforms==0.1
 django-taggit==3.1.0
 django-treebeard==4.6.1
 djangorestframework==3.14.0
-dotenv==0.0.5
 draftjs-exporter==2.1.7
 et-xmlfile==1.1.0
 html5lib==1.1
