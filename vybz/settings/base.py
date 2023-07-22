@@ -2,12 +2,11 @@
 from pathlib import Path
 import os
 import mimetypes
-import environ
+from configparser import RawConfigParser
 
-env = environ.Env(
-    # set casting, default value
-    DEBUG=True
-)
+config = RawConfigParser()
+config.read('/etc/vybz/settings/ini')
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 PROJECT_DIR = os.path.dirname(os.path.dirname(
@@ -24,9 +23,6 @@ BASE_DIR = Path(__file__).resolve().parent.parent.parent
 # SECRET_KEY = env('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-
-ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
