@@ -16,11 +16,7 @@ config.read('/etc/vybz/settings.ini')
 BASE_DIR = os.path.dirname(os.path.dirname(
     os.path.dirname(os.path.abspath(__file__))))
 
-# Take environment variables from .env file
-environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
-# Raises Django's ImproperlyConfigured
-# exception if SECRET_KEY not in os.environ
-# False if not in os.environ because of casting above
+
 DEBUG = False
 
 ALLOWED_HOSTS = ['138.197.169.241',
