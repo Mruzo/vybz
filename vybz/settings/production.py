@@ -19,8 +19,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(
 
 DEBUG = False
 
-ALLOWED_HOSTS = ['138.197.169.241',
-                 'www.justvybz.com', 'justvybz.com', 'localhost']
+TEMPLATE_DEBUG = DEBUG
+
+ALLOWED_HOSTS = ['143.110.209.152', 'www.justvybz.com', 'justvybz.com']
 
 CSRF_COOKIE_SECURE = True
 
