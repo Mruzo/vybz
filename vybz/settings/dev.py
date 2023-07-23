@@ -7,7 +7,6 @@ config.read('/etc/vybz/settings.ini')
 
 DEBUG = True
 
-SECRET_KEY = config.get('section', 'VYBZ_KEY')
 
 ALLOWED_HOSTS = ["*"]
 

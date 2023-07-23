@@ -26,9 +26,6 @@ CSRF_COOKIE_SECURE = True
 
 SECURE_SSL_REDIRECT = True
 
-config = RawConfigParser()
-config.read('/etc/snmov/settings.ini')
-
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
