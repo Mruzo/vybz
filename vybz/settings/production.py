@@ -37,9 +37,9 @@ DATABASES = {
     }
 }
 
-AWS_ACCESS_KEY_ID = env('S3_KEY_ID')
-AWS_SECRET_ACCESS_KEY = env('S3_SCRT_KEY')
-AWS_STORAGE_BUCKET_NAME = env('S3_BUCKET_NAME')
+AWS_ACCESS_KEY_ID = config.get('section', 'S3_KEY_ID')
+AWS_SECRET_ACCESS_KEY = config.get('section', 'S3_SCRT_KEY')
+AWS_STORAGE_BUCKET_NAME = config.get('section', 'S3_BUCKET_NAME')
 
 AWS_S3_FILE_OVERWRITE = False
 AWS_DEFAULT_ACL = None
